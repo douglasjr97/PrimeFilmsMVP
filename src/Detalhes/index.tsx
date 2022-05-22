@@ -1,27 +1,25 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import Filmes from '../FIlmes';
+import { Filme } from '../../interfaces/interface';
 
-interface Iprops {
-  voltar: any;
-  filme?: any;
+interface DetalhesProps {
+  voltar: () => void;
+  filme: Filme;
 }
 
-const Detalhes: React.FC<Iprops> = (props) => {
+const Detalhes: React.FC<DetalhesProps> = ({
+  voltar,
+  filme: { foto, id, nome, sinopse },
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.modalContainer}>
-        <TouchableOpacity style={styles.btnVoltar} onPress={props.voltar}>
+        <TouchableOpacity style={styles.btnVoltar} onPress={voltar}>
           <Text style={{ fontSize: 16, color: '#fff' }}>Voltar</Text>
         </TouchableOpacity>
-        <Text style={styles.titulo}>Filme</Text>
+        <Text style={styles.titulo}>{nome}</Text>
         <Text style={styles.sinopse}>Sinopse:</Text>
-        <Text style={styles.descricao}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus enim
-          aperiam quas, omnis dolore hic voluptatibus commodi doloribus iusto,
-          cupiditate, at laborum dolorem voluptates consectetur placeat iure. A,
-          vel fugiat!
-        </Text>
+        <Text style={styles.descricao}>{sinopse}</Text>
       </View>
     </View>
   );

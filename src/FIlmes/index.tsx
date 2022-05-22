@@ -9,6 +9,7 @@ import {
 import React, { useState } from 'react';
 import { Filme } from '../../interfaces/interface';
 import Detalhes from '../Detalhes';
+import App from '../../App';
 
 type FilmesProps = {
   // id?: number;
@@ -18,9 +19,7 @@ type FilmesProps = {
   data: Filme;
 };
 
-export default function Filmes({
-  data: { id, nome, sinopse, foto },
-}: FilmesProps) {
+export default function Filmes({ nome, foto, id, sinopse }: Filme) {
   const [visibleModal, setVisibleModal] = useState(false);
 
   return (
@@ -40,7 +39,10 @@ export default function Filmes({
         </View>
       </View>
       <Modal transparent={true} animationType="slide" visible={visibleModal}>
-        <Detalhes voltar={() => setVisibleModal(false)} />
+        <Detalhes
+          filme={{ nome, foto, id, sinopse }}
+          voltar={() => setVisibleModal(false)}
+        />
       </Modal>
     </View>
   );

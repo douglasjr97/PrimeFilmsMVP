@@ -21,7 +21,7 @@ export default function App() {
       <FlatList
         data={filmes}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <Filmes data={item} />}
+        renderItem={({ item }) => <Filmes {...item} />}
       />
       <StatusBar style="auto" />
     </View>
