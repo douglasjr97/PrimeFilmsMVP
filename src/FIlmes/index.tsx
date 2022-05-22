@@ -19,15 +19,15 @@ type FilmesProps = {
   data: Filme;
 };
 
-export default function Filmes({ nome, foto, id, sinopse }: Filme) {
+export default function Filmes(filme: Filme) {
   const [visibleModal, setVisibleModal] = useState(false);
 
   return (
     <View style={{}}>
       <View style={styles.card}>
-        <Text style={styles.titulo}>{nome}</Text>
+        <Text style={styles.titulo}>{filme.nome}</Text>
 
-        <Image source={{ uri: foto }} style={styles.capa} />
+        <Image source={{ uri: filme.foto }} style={styles.capa} />
 
         <View style={styles.areaBotao}>
           <TouchableOpacity
@@ -39,10 +39,7 @@ export default function Filmes({ nome, foto, id, sinopse }: Filme) {
         </View>
       </View>
       <Modal transparent={true} animationType="slide" visible={visibleModal}>
-        <Detalhes
-          filme={{ nome, foto, id, sinopse }}
-          voltar={() => setVisibleModal(false)}
-        />
+        <Detalhes filme={filme} voltar={() => setVisibleModal(false)} />
       </Modal>
     </View>
   );

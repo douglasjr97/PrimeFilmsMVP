@@ -7,19 +7,16 @@ interface DetalhesProps {
   filme: Filme;
 }
 
-const Detalhes: React.FC<DetalhesProps> = ({
-  voltar,
-  filme: { foto, id, nome, sinopse },
-}) => {
+const Detalhes: React.FC<DetalhesProps> = ({ voltar, filme }) => {
   return (
     <View style={styles.container}>
       <View style={styles.modalContainer}>
         <TouchableOpacity style={styles.btnVoltar} onPress={voltar}>
           <Text style={{ fontSize: 16, color: '#fff' }}>Voltar</Text>
         </TouchableOpacity>
-        <Text style={styles.titulo}>{nome}</Text>
+        <Text style={styles.titulo}>{filme.nome}</Text>
         <Text style={styles.sinopse}>Sinopse:</Text>
-        <Text style={styles.descricao}>{sinopse}</Text>
+        <Text style={styles.descricao}>{filme.sinopse}</Text>
       </View>
     </View>
   );
@@ -60,6 +57,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   descricao: {
+    fontSize: 20,
     color: '#FFF',
     padding: 10,
     marginRight: 10,
