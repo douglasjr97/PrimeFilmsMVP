@@ -9,21 +9,12 @@ import {
 import React, { useState } from 'react';
 import { Filme } from '../../interfaces/interface';
 import Detalhes from '../Detalhes';
-import App from '../../App';
-
-type FilmesProps = {
-  // id?: number;
-  // nome?: string;
-  // sinopse?: string;
-  // foto?: string;
-  data: Filme;
-};
 
 export default function Filmes(filme: Filme) {
   const [visibleModal, setVisibleModal] = useState(false);
 
   return (
-    <View style={{}}>
+    <View>
       <View style={styles.card}>
         <Text style={styles.titulo}>{filme.nome}</Text>
 
@@ -34,7 +25,7 @@ export default function Filmes(filme: Filme) {
             style={styles.botao}
             onPress={() => setVisibleModal(true)}
           >
-            <Text style={styles.botaoTexto}>LEIA MAIS...</Text>
+            <Text style={styles.botaoTexto}>LEIA MAIS</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -63,9 +54,8 @@ const styles = StyleSheet.create({
   },
   areaBotao: {
     alignItems: 'flex-end',
-    margin: 0,
+    marginTop: -45,
     zIndex: 9,
-    marginRight: 0,
   },
   botao: {
     width: 100,
@@ -74,7 +64,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
-    position: 'absolute',
   },
   botaoTexto: {
     color: '#fff',
