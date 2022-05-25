@@ -2,7 +2,7 @@ import { View, Text, ActivityIndicator, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import api from '../../../services/api';
 import { Filme } from '../../../interfaces/interface';
-import Filmes from '../../FIlmes';
+import Filmes from '../../Filmes';
 
 const Dashboard = () => {
   const [filmes, setFilmes] = useState<Filme[]>([]);

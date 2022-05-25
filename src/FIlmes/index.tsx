@@ -9,26 +9,29 @@ import {
 import React, { useState } from 'react';
 import { Filme } from '../../interfaces/interface';
 import Detalhes from '../Detalhes';
+import { Card } from './styles';
 
 export default function Filmes(filme: Filme) {
   const [visibleModal, setVisibleModal] = useState(false);
 
   return (
     <View>
-      <View style={styles.card}>
-        <Text style={styles.titulo}>{filme.nome}</Text>
+      <Card>
+        <View>
+          <Text style={styles.titulo}>{filme.nome}</Text>
 
-        <Image source={{ uri: filme.foto }} style={styles.capa} />
+          <Image source={{ uri: filme.foto }} style={styles.capa} />
 
-        <View style={styles.areaBotao}>
-          <TouchableOpacity
-            style={styles.botao}
-            onPress={() => setVisibleModal(true)}
-          >
-            <Text style={styles.botaoTexto}>LEIA MAIS</Text>
-          </TouchableOpacity>
+          <View style={styles.areaBotao}>
+            <TouchableOpacity
+              style={styles.botao}
+              onPress={() => setVisibleModal(true)}
+            >
+              <Text style={styles.botaoTexto}>LEIA MAIS</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </Card>
       <Modal transparent={true} animationType="slide" visible={visibleModal}>
         <Detalhes filme={filme} voltar={() => setVisibleModal(false)} />
       </Modal>
@@ -37,12 +40,11 @@ export default function Filmes(filme: Filme) {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#FFF',
-    margin: 15,
-    elevation: 2,
-    marginTop: 50,
-  },
+  // card: {
+  //   backgroundColor: '#FFF',
+  //   margin: 15,
+  //   marginTop: 50,
+  // },
 
   capa: {
     height: 250,
