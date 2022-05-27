@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { Filme } from '../../interfaces/interface';
+import { ApiMovie, Movie } from '../../interfaces/interface';
 
 interface DetalhesProps {
   voltar: () => void;
-  filme: Filme;
+  filme: Movie | ApiMovie;
 }
 
 const Detalhes: React.FC<DetalhesProps> = ({ voltar, filme }) => {
@@ -14,9 +14,9 @@ const Detalhes: React.FC<DetalhesProps> = ({ voltar, filme }) => {
         <TouchableOpacity style={styles.btnVoltar} onPress={voltar}>
           <Text style={{ fontSize: 16, color: '#fff' }}>Voltar</Text>
         </TouchableOpacity>
-        <Text style={styles.titulo}>{filme.nome}</Text>
+        <Text style={styles.titulo}>{filme.title}</Text>
         <Text style={styles.sinopse}>Sinopse:</Text>
-        <Text style={styles.descricao}>{filme.sinopse}</Text>
+        <Text style={styles.descricao}>{filme.overview}</Text>
       </View>
     </View>
   );

@@ -7,20 +7,25 @@ import {
   Modal,
 } from 'react-native';
 import React, { useState } from 'react';
-import { Filme } from '../../interfaces/interface';
+import { ApiMovie, Movie } from '../../interfaces/interface';
 import Detalhes from '../Detalhes';
 import { Card } from './styles';
+import { imageBaseUrl } from '../services/api';
 
-export default function Filmes(filme: Filme) {
+export default function Filmes(filme: ApiMovie) {
   const [visibleModal, setVisibleModal] = useState(false);
+  console.log(`${imageBaseUrl}${filme.poster_path}`);
 
   return (
     <View>
       <Card>
         <View>
-          <Text style={styles.titulo}>{filme.nome}</Text>
+          <Text style={styles.titulo}>{filme.title}</Text>
 
-          <Image source={{ uri: filme.foto }} style={styles.capa} />
+          <Image
+            source={{ uri: `${imageBaseUrl}${filme.poster_path}` }}
+            style={styles.capa}
+          />
 
           <View style={styles.areaBotao}>
             <TouchableOpacity

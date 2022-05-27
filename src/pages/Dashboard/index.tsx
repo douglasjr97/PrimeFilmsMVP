@@ -1,17 +1,22 @@
 import { View, Text, ActivityIndicator, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import api from '../../../services/api';
-import { Filme } from '../../../interfaces/interface';
+import { api } from '../../services/api';
 import Filmes from '../../Filmes';
+import { ApiMovie, Movie } from '../../../interfaces/interface';
+import convertApiMovieToMovie from '../../utils/convertApiMovieToMovie';
 
 const Dashboard = () => {
-  const [filmes, setFilmes] = useState<Filme[]>([]);
+  const [filmes, setFilmes] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadFilmes() {
-      const response = await api.get('/r-api/?api=filmes');
-      setFilmes(response.data);
+      const response = await api.get('movie/popular/');
+      const unformattedMovies: ApiMovie[] = response.data.results;
+      const formattedMovies: Movie[] = unformattedMovies.map((movie) =>
+        convertApiMovieToMovie(movie)
+      );
+      setFilmes(response.data.results);
       setLoading(false);
     }
     loadFilmes();

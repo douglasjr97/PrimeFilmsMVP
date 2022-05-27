@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PrimeFilmsMock",
-    "slug": "PrimeFilmsMock",
+    "name": "PrimeFilmsMvp",
+    "slug": "PrimeFilmsMvp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
