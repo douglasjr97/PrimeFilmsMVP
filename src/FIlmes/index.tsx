@@ -7,7 +7,7 @@ import {
   Modal,
 } from 'react-native';
 import React, { useState } from 'react';
-import { ApiMovie, Movie } from '../../interfaces/interface';
+import { ApiMovie, Movie } from '../interfaces/interface';
 import Detalhes from '../Detalhes';
 import { Card } from './styles';
 import { imageBaseUrl } from '../services/api';

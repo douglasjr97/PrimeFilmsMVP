@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { ApiMovie, Movie } from '../../interfaces/interface';
+import { ApiMovie, Movie } from '../interfaces/interface';
 
 interface DetalhesProps {
   voltar: () => void;

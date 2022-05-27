@@ -1,4 +1,4 @@
-import { ApiMovie, Movie } from '../../interfaces/interface';
+import { ApiMovie, Movie } from '../interfaces/interface';
 
 export default function convertApiMovieToMovie(apiMovie: ApiMovie): Movie {
   return {

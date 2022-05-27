@@ -2,7 +2,7 @@ import { View, Text, ActivityIndicator, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import Filmes from '../../Filmes';
-import { ApiMovie, Movie } from '../../../interfaces/interface';
+import { ApiMovie, Movie } from '../../interfaces/interface';
 import convertApiMovieToMovie from '../../utils/convertApiMovieToMovie';
 
 const Dashboard = () => {
