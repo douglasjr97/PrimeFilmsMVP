@@ -16,7 +16,7 @@ const Dashboard = () => {
       const formattedMovies: Movie[] = unformattedMovies.map((movie) =>
         convertApiMovieToMovie(movie)
       );
-      setFilmes(response.data.results);
+      setFilmes(formattedMovies);
       setLoading(false);
     }
     loadFilmes();
@@ -24,7 +24,14 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          flex: 1,
+          backgroundColor: 'black',
+        }}
+      >
         <ActivityIndicator color="#2009ec" size={45} />
       </View>
     );

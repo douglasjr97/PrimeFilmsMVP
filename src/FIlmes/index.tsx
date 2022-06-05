@@ -12,9 +12,9 @@ import Detalhes from '../Detalhes';
 import { Card } from './styles';
 import { imageBaseUrl } from '../services/api';
 
-export default function Filmes(filme: ApiMovie) {
+export default function Filmes(filme: Movie) {
   const [visibleModal, setVisibleModal] = useState(false);
-  console.log(`${imageBaseUrl}${filme.poster_path}`);
+  console.log(`${imageBaseUrl}${filme.imagePosterUrl}`);
 
   return (
     <View>
@@ -23,7 +23,7 @@ export default function Filmes(filme: ApiMovie) {
           <Text style={styles.titulo}>{filme.title}</Text>
 
           <Image
-            source={{ uri: `${imageBaseUrl}${filme.poster_path}` }}
+            source={{ uri: `${imageBaseUrl}${filme.imagePosterUrl}` }}
             style={styles.capa}
           />
 
